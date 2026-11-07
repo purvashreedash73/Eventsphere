@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EventSphere – Event Management</title>
+<meta name="description" content="Discover, explore and register for upcoming events.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a href="#home" class="logo">✦ EventSphere</a>
+  <nav id="menu">
+    <a href="#events">Events</a>
+    <a href="#registrations">My Registrations</a>
+    <a href="#about">About</a>
+  </nav>
+  <div class="nav-actions">
+    <button id="themeBtn" class="icon-btn" aria-label="Toggle dark or light mode">🌙</button>
+    <button id="burger" class="icon-btn burger" aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <span class="pill">Season 2026–27</span>
+      <h1>Find your next <span class="grad">unforgettable</span> event</h1>
+      <p>Hackathons, concerts, workshops and more — explore, pick your favourite and register in seconds.</p>
+      <a href="#events" class="btn">Explore Events</a>
+      <div class="stats">
+        <div><b id="statEvents">0</b><span>Events</span></div>
+        <div><b>6</b><span>Categories</span></div>
+        <div><b id="statReg">0</b><span>Your registrations</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="section">
+    <h2>Upcoming &amp; Featured Events</h2>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="🔍 Search by name, venue or keyword…" aria-label="Search events">
+      <div id="filters" class="chips"></div>
+    </div>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="empty" hidden>No events match your search. Try another keyword or category.</p>
+  </section>
+
+  <section id="registrations" class="section alt">
+    <h2>My Registrations</h2>
+    <p class="sub">Saved in your browser using Local Storage.</p>
+    <div id="regList" class="reg-list"></div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About EventSphere</h2>
+    <p class="sub about">EventSphere is a responsive event platform built with HTML5, CSS3 and vanilla JavaScript. Browse events, search and filter, view full details and register with validated forms.</p>
+  </section>
+</main>
+
+<footer class="footer">© 2026 EventSphere · Built with HTML, CSS &amp; JavaScript</footer>
+
+<div id="modal" class="modal" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button id="closeBtn" class="close" aria-label="Close">✕</button>
+    <div id="mBanner" class="banner"></div>
+    <div class="dialog-body">
+      <span id="mCat" class="pill"></span>
+      <h3 id="mTitle"></h3>
+      <ul class="meta">
+        <li>📅 <span id="mDate"></span></li>
+        <li>📍 <span id="mVenue"></span></li>
+        <li>🎟️ <span id="mPrice"></span></li>
+      </ul>
+      <p id="mDesc"></p>
+      <div id="countdown" class="countdown"></div>
+
+      <form id="regForm" novalidate>
+        <h4>Register for this event</h4>
+        <label>Full name
+          <input id="name" type="text" placeholder="e.g. Purva Sharma" autocomplete="name">
+          <small class="err" id="nameErr"></small>
+        </label>
+        <label>Email address
+          <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+          <small class="err" id="emailErr"></small>
+        </label>
+        <label>Phone number
+          <input id="phone" type="tel" placeholder="10-digit mobile number" autocomplete="tel">
+          <small class="err" id="phoneErr"></small>
+        </label>
+        <label>Selected event
+          <select id="eventSel"></select>
+          <small class="err" id="eventErr"></small>
+        </label>
+        <button type="submit" class="btn full">Register Now</button>
+      </form>
+
+      <div id="success" class="success" hidden>
+        <div class="tick">✓</div>
+        <h4>Registration confirmed!</h4>
+        <p id="successMsg"></p>
+        <button id="doneBtn" class="btn">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
